@@ -2,11 +2,9 @@ from flask import Flask, render_template,request, send_from_directory
 import os
 import requests
 import json
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-load_dotenv()
 RG_API_KEY = os.getenv('RG_API_KEY')
 
 # Loads a file containing all champions and their respective ID numbers
