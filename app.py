@@ -72,8 +72,10 @@ def index():
 
         if responseJSON_2[0]["queueType"] == "RANKED_SOLO_5x5":
             infoNum = 0
-        else:
+        elif responseJSON_2[0]["queueType"] == "RANKED_SOLO_5x5":
             infoNum = 1
+        else:
+            infoNum = 2
 
         summoner_name = responseJSON_2[infoNum]["summonerName"]
         level =  str(responseJSON_1['summonerLevel'])
