@@ -56,7 +56,9 @@ def index():
                 whiteSpace_fix = summonerName.split(" ")
                 summonerName = whiteSpace_fix[0] + "%20" + whiteSpace_fix[1]
 
-        # Make parameter dictionary with Region, Summoner Name, and API Key
+        """
+        Make parameter dictionary with Region, Summoner Name, and API Key
+        """
         params = {
             "region": region,
             "summonerName": summonerName,
