@@ -59,7 +59,7 @@ across the entire page. -->
             </div>
             <div class="card text-center" style="width: 18rem;">
                 <p>&nbsp;</p>
-                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/ranked-emblems/{{ rank_img }}' alt="Card image cap">
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/ranked-emblems/{{ rank_img }}' alt=" ">
                 <div class="card-body">
                     <h2 class="card-title">Rank</h2>
                     <hr class="my-4">
@@ -92,35 +92,38 @@ across the entire page. -->
                 </div>
             </div>
         </div>
+
+        {% for champ in champion_name %}
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <div class="card-group">
             <div class="card text-center" style="width: 18rem;">
                 <p>&nbsp;</p>
-                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/champion-img/{{ champion_img }}' alt="Card image cap">
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/champion-img/{{ champion_img[loop.index0] }}' alt=" ">
                 <div class="card-body">
-                    <h2 class="card-title">Main Champion</h2>
+                    <h2 class="card-title">Champion</h2>
                     <hr class="my-4">
-                    <h4>{{ champion_name }}</h4>
+                    <h4>{{ champ }}</h4>
                 </div>
             </div>
             <div class="card text-center" style="width: 18rem;">
                 <p>&nbsp;</p>
-                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/mastery-lvl/{{ mastery_img }}' alt="Card image cap">
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/mastery-lvl/{{ mastery_img[loop.index0] }}' alt=" ">
                 <div class="card-body">
                     <h2 class="card-title">Mastery Level</h2>
                     <hr class="my-4">
-                    <h4>{{ mastery_level }}</h4>
+                    <h4>{{ mastery_level[loop.index0] }}</h4>
                 </div>
             </div>
             <div class="card text-center" style="width: 18rem;">
                 <div class="card-body">
                     <h2 class="card-title">Mastery Points</h2>
                     <hr class="my-4">
-                    <h4>{{ mastery_points }}</h4>
+                    <h4>{{ mastery_points[loop.index0] }}</h4>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
