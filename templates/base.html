@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- This code below imports all the style libraries we will be using from Bootstrap,
+        FontAwesome, Google Fonts, and our own CSS file. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Champion Mastery</title>
+</head>
+<body>
+    <!-- The code below makes a base for the site using Bootstrap. It consists of a container which
+        contains 3 columns in a row and the main content in the center column (this is so it centers to the page). -->
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 pb-5">
+                <h1 class="main-logo text-center">Champion Mastery</h1>
+                {% block search %}
+                {% endblock %}
+                {% block gifs %}
+                {% endblock %}
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <!-- The code below imports all the JavaScript libraries we will need for filling the GIFs and the animations. -->
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+</body>
+</html>

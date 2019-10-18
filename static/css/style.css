@@ -1,0 +1,19 @@
+body {
+  background: #5b5b5b !important;
+}
+
+.col-12 {
+  background: #00BFB2 !important;
+}
+
+.main-logo {
+  margin: auto;
+  font-family: 'Manjari', sans-serif;
+  color: white;
+  font-size: 108px;
+  padding: 40px;
+}
+
+.btn {
+  font-family: 'Manjari', sans-serif;
+}
