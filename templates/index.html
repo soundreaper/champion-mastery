@@ -7,6 +7,10 @@
 </head>
 <body>
 
+<script>
+    new WOW().init();
+</script>
+
 <!-- The code below extends base.html with the base of our website and adds the search bar and 3 buttons for
 Search, trending, and Random. This is also contained inside another row and column so the search bar does not extend
 across the entire page. -->
@@ -42,7 +46,7 @@ across the entire page. -->
         Each grid entry loads one GIF image from the list of GIFs returned by the render_template function in app.py -->
         <h1 class="display-4">{{ summoner_name }}</h1>
         <hr class="my-4">
-        <div class="card-group animated slideInUp">
+        <div class="card-group animated wow slideInUp">
             <div class="card text-center" style="width: 18rem;">
                 <div class="card-body">
                     <h2 class="card-title">Level</h2>
@@ -67,7 +71,7 @@ across the entire page. -->
                 </div>
             </div>
         </div>
-        <div class="card-group animated slideInUp">
+        <div class="card-group animated wow slideInUp">
             <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
                         <h2 class="card-title">Wins</h2>
@@ -96,7 +100,7 @@ across the entire page. -->
         {% for champ in champion_name %}
         <p>&nbsp;</p>
         <p>&nbsp;</p>
-        <div class="card-group animated slideInUp">
+        <div class="card-group animated wow slideInUp">
             <div class="card text-center" style="width: 18rem;">
                 <p>&nbsp;</p>
                 <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/champion-img/{{ champion_img[loop.index0] }}' alt=" ">
