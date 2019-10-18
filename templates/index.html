@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Champion Mastery</title>
+</head>
+<body>
+
+<!-- The code below extends base.html with the base of our website and adds the search bar and 3 buttons for
+Search, trending, and Random. This is also contained inside another row and column so the search bar does not extend
+across the entire page. -->
+{% extends 'base.html' %}
+{% block search %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col mx-5">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="input-search" placeholder="Search Summoner Name Here!" name="query">
+                </div>
+                <div class="text-center">
+                    <button type="submit" formaction="/" class="btn btn-primary btn-lg btn-dark">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block gifs %}
+<div class="container">
+    <!-- The below code checks the "gifs" list returned by the render_template function in app.py. If the 
+    list is empty then it displays an error message and asks the user to input a proper query. -->
+    {% if summoner_name == None %}
+        <h1 style="font-family: 'Manjari', sans-serif; text-align: center; color: white">Summoner not found! Try another search query!</h1>
+    {% endif %}
+
+    <!-- The code below uses Bootstrap to create a 3 by 3 row and column grid to display each of the nine
+    GIFs that are loaded when either a query is searched for or the trending/random button is hit.
+    Each grid entry loads one GIF image from the list of GIFs returned by the render_template function in app.py -->
+    <h1>Summoner Name: {{ summoner_name }}</h1>
+    <h1>Level: {{ level }}</h1>
+    <h1>Queue Type: {{ queue_type }}</h1>
+    <h1>Rank: {{ tier }} {{ rank }}, {{ league_points }} LP</h1>
+    <h1>Wins: {{ wins }}</h1>
+    <h1>Losses: {{ losses }}</h1>
+    <h1>Winrate: {{ winrate }}%</h1>
+    <h1>Champion: {{ champion_name }}</h1>
+    <h1>Mastery Level: {{ mastery_level }}</h1>
+    <h1>Mastery Points: {{ mastery_points }}</h1>
+</div>
+{% endblock %}
+
+</body>
+</html>
