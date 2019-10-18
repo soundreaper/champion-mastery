@@ -92,13 +92,21 @@ def index():
         winrate_dec = responseJSON_2[infoNum]["wins"]/(responseJSON_2[infoNum]["wins"] + responseJSON_2[infoNum]["losses"])
         winrate = str(round(winrate_dec * 100, 2))
 
-        champID = responseJSON_3[0]["championId"]
-        champion_name = identifyChampion(champID)
-        champion_img = champion_name + '.png'
+        champID = [responseJSON_3[0]["championId"], responseJSON_3[1]["championId"], responseJSON_3[2]["championId"], responseJSON_3[3]["championId"], responseJSON_3[4]["championId"]]
+        champion_name = []
+        for ID in champID:
+            champion_name.append(identifyChampion(ID))
+        
+        champion_img = []
+        for champ in champion_name:
+            champion_img.append(champ + '.png')
 
-        mastery_level = str(responseJSON_3[0]["championLevel"])
-        mastery_img = mastery_level + '.png'
-        mastery_points = str(responseJSON_3[0]["championPoints"])
+        mastery_level = [str(responseJSON_3[0]["championLevel"]), str(responseJSON_3[1]["championLevel"]), str(responseJSON_3[2]["championLevel"]), str(responseJSON_3[3]["championLevel"]), str(responseJSON_3[4]["championLevel"])]
+        mastery_img = []
+        for mastery in mastery_level:
+            mastery_img.append(mastery + '.png')
+
+        mastery_points = [str(responseJSON_3[0]["championPoints"]), str(responseJSON_3[1]["championPoints"]), str(responseJSON_3[2]["championPoints"]), str(responseJSON_3[3]["championPoints"]), str(responseJSON_3[4]["championPoints"])]
         
         # Render the 'index.html' template, passing all parsed parameters
         return render_template("index.html", summoner_name=summoner_name, level=level, queue_type=queue_type,
