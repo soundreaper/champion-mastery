@@ -66,6 +66,24 @@ def index():
 
         tier = responseJSON_2[infoNum]["tier"].lower().capitalize()
         rank = responseJSON_2[infoNum]["rank"]
+
+        if tier == 'Iron':
+            rank_img = "Iron.png"
+        elif tier == 'Silver':
+            rank_img = "Silver.png"
+        elif tier == 'Gold':
+            rank_img = "Gold.png"
+        elif tier == 'Platinum':
+            rank_img = "Platinum.png"
+        elif tier == 'Diamond':
+            rank_img = "Diamond.png"
+        elif tier == 'Master':
+            rank_img = "Master.png"
+        elif tier == 'Grandmaster':
+            rank_img = "Grandmaster.png"
+        elif tier == 'Challenger':
+            rank_img = "Challenger.png"
+
         league_points = str(responseJSON_2[infoNum]["leaguePoints"])
         
         wins = str(responseJSON_2[infoNum]["wins"])
@@ -76,12 +94,16 @@ def index():
 
         champID = responseJSON_3[0]["championId"]
         champion_name = identifyChampion(champID)
+        champion_img = champion_name + '.png'
+
         mastery_level = str(responseJSON_3[0]["championLevel"])
+        mastery_img = mastery_level + '.png'
         mastery_points = str(responseJSON_3[0]["championPoints"])
         
         # Render the 'index.html' template, passing all parsed parameters
         return render_template("index.html", summoner_name=summoner_name, level=level, queue_type=queue_type,
-            tier=tier, rank=rank, league_points=league_points, wins=wins, losses=losses, winrate=winrate,
-            champion_name=champion_name, mastery_level=mastery_level, mastery_points=mastery_points)
+            tier=tier, rank=rank, rank_img=rank_img, league_points=league_points, wins=wins, losses=losses, winrate=winrate,
+            champion_name=champion_name, champion_img=champion_img, mastery_level=mastery_level, 
+            mastery_img=mastery_img, mastery_points=mastery_points)
     else:
         return render_template("index.html")
