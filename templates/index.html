@@ -30,25 +30,98 @@ across the entire page. -->
 
 {% block gifs %}
 <div class="container">
-    <!-- The below code checks the "gifs" list returned by the render_template function in app.py. If the 
-    list is empty then it displays an error message and asks the user to input a proper query. -->
-    {% if summoner_name == None %}
+    <div class="jumbotron">
+        <!-- The below code checks the "gifs" list returned by the render_template function in app.py. If the 
+        list is empty then it displays an error message and asks the user to input a proper query. -->
+        {% if summoner_name == None %}
         <h1 style="font-family: 'Manjari', sans-serif; text-align: center; color: white">Summoner not found! Try another search query!</h1>
-    {% endif %}
+        {% endif %}
 
-    <!-- The code below uses Bootstrap to create a 3 by 3 row and column grid to display each of the nine
-    GIFs that are loaded when either a query is searched for or the trending/random button is hit.
-    Each grid entry loads one GIF image from the list of GIFs returned by the render_template function in app.py -->
-    <h1>Summoner Name: {{ summoner_name }}</h1>
-    <h1>Level: {{ level }}</h1>
-    <h1>Queue Type: {{ queue_type }}</h1>
-    <h1>Rank: {{ tier }} {{ rank }}, {{ league_points }} LP</h1>
-    <h1>Wins: {{ wins }}</h1>
-    <h1>Losses: {{ losses }}</h1>
-    <h1>Winrate: {{ winrate }}%</h1>
-    <h1>Champion: {{ champion_name }}</h1>
-    <h1>Mastery Level: {{ mastery_level }}</h1>
-    <h1>Mastery Points: {{ mastery_points }}</h1>
+        <!-- The code below uses Bootstrap to create a 3 by 3 row and column grid to display each of the nine
+        GIFs that are loaded when either a query is searched for or the trending/random button is hit.
+        Each grid entry loads one GIF image from the list of GIFs returned by the render_template function in app.py -->
+        <h1 class="display-4">{{ summoner_name }}</h1>
+        <hr class="my-4">
+        <div class="card-group">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Level</h2>
+                    <hr class="my-4">
+                    <h4>{{ level }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Queue Type</h2>
+                    <hr class="my-4">
+                    <h4>{{ queue_type }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <p>&nbsp;</p>
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/ranked-emblems/{{ rank_img }}' alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">Rank</h2>
+                    <hr class="my-4">
+                    <h4>{{ tier }} {{ rank }}, {{ league_points }} LP</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-group">
+            <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">Wins</h2>
+                        <hr class="my-4">
+                        <h4>{{ wins }}</h4>
+                    </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Losses</h2>
+                    <hr class="my-4">
+                    <h4>{{ losses }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-group">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Winrate</h2>
+                    <hr class="my-4">
+                    <h4>{{ winrate }}%</h4>
+                </div>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div class="card-group">
+            <div class="card text-center" style="width: 18rem;">
+                <p>&nbsp;</p>
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/champion-img/{{ champion_img }}' alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">Main Champion</h2>
+                    <hr class="my-4">
+                    <h4>{{ champion_name }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <p>&nbsp;</p>
+                <img class="card-img-top mx-auto" style="width: 120px;height: 120px;" src='../static/images/mastery-lvl/{{ mastery_img }}' alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">Mastery Level</h2>
+                    <hr class="my-4">
+                    <h4>{{ mastery_level }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Mastery Points</h2>
+                    <hr class="my-4">
+                    <h4>{{ mastery_points }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
