@@ -34,7 +34,7 @@ def index():
     region = 'na'
     #request.args.get('region')
 
-    #Checks to see if Summoner Name has a space in it and replaces with "%20" so API URL can be Built Properly
+    # Checks to see if Summoner Name has a space in it and replaces with "%20" so API URL can be Built Properly
     if summonerName != "":
         for check in summonerName:
             if (check.isspace()) == True:
