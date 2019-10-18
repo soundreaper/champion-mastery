@@ -50,7 +50,7 @@ def index():
     """
     Checks to see if Summoner Name has a space in it and replaces with "%20" so API URL can be Built Properly
     """
-    if summonerName != "":
+    if summonerName != "" and summonerName is not None:
         for check in summonerName:
             if (check.isspace()) == True:
                 whiteSpace_fix = summonerName.split(" ")
