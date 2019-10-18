@@ -48,16 +48,9 @@ def index():
     #request.args.get('region')
 
     """
-    Checks to see if the query is empty or if it has a space. If the Summoner Name has a space in it the
-    function replaces the space with "%20" so API URL can be built properly.
+    Checks to see if Summoner Name has a space in it and replaces with "%20" so API URL can be Built Properly
     """
-    if summonerName == "":
-        return render_template("index.html", summoner_name=None, level=None, queue_type=None,
-        tier=None, rank=None, rank_img=None, league_points=None, wins=None, losses=None, winrate=None,
-        champion_name=None, champion_img=None, mastery_level=None, 
-        mastery_img=None, mastery_points=None)
-
-    elif summonerName != "":
+    if summonerName != "":
         for check in summonerName:
             if (check.isspace()) == True:
                 whiteSpace_fix = summonerName.split(" ")
