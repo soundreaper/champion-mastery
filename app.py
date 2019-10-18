@@ -24,3 +24,25 @@ def identifyChampion(num):
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/')
+def index():
+    """Return homepage."""
+    # Extract Summoner Name query from url
+    summonerName = request.args.get('query')
+    region = 'na'
+    #request.arge.get('region')
+
+    #Checks to see if Summoner Name has a space in it and replaces with "%20" so API URL can be Built Properly
+    if summonerName != "":
+        for check in summonerName:
+            if (check.isspace()) == True:
+                whiteSpace_fix = summonerName.split(" ")
+                summonerName = whiteSpace_fix[0] + "%20" + whiteSpace_fix[1]
+
+        # Make parameter dictionary with Region, Summoner Name, and API Key
+        params = {
+            "region": region,
+            "summonerName": summonerName,
+            "APIKey": RG_API_KEY
+        }
