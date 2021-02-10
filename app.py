@@ -70,21 +70,25 @@ def index():
         summonerID = str(responseJSON_1["id"])
 
         responseJSON_2 = requests.get("https://" + params.get("region") + "1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + summonerID + "?api_key=" + params.get("APIKey")).json()
+
+        print(responseJSON_2)
         responseJSON_3 = requests.get("https://" + params.get("region") + "1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + summonerID + "?api_key=" + params.get("APIKey")).json()
 
+        """
         if responseJSON_2[0]["queueType"] == "RANKED_SOLO_5x5":
             infoNum = 0
         elif responseJSON_2[0]["queueType"] == "RANKED_SOLO_5x5":
             infoNum = 1
         else:
             infoNum = 2
+        """
 
-        summoner_name = responseJSON_2[infoNum]["summonerName"]
+        summoner_name = responseJSON_2[0]["summonerName"]
         level =  str(responseJSON_1['summonerLevel'])
-        queue_type = "Ranked Solo/Duo"
+        queue_type = responseJSON_2[0]["queueType"]
 
-        tier = responseJSON_2[infoNum]["tier"].lower().capitalize()
-        rank = responseJSON_2[infoNum]["rank"]
+        tier = responseJSON_2[0]["tier"].lower().capitalize()
+        rank = responseJSON_2[0]["rank"]
 
         if tier == 'Iron':
             rank_img = "Iron.png"
@@ -103,12 +107,12 @@ def index():
         elif tier == 'Challenger':
             rank_img = "Challenger.png"
 
-        league_points = str(responseJSON_2[infoNum]["leaguePoints"])
+        league_points = str(responseJSON_2[0]["leaguePoints"])
         
-        wins = str(responseJSON_2[infoNum]["wins"])
-        losses = str(responseJSON_2[infoNum]["losses"])
+        wins = str(responseJSON_2[0]["wins"])
+        losses = str(responseJSON_2[0]["losses"])
 
-        winrate_dec = responseJSON_2[infoNum]["wins"]/(responseJSON_2[infoNum]["wins"] + responseJSON_2[infoNum]["losses"])
+        winrate_dec = responseJSON_2[0]["wins"]/(responseJSON_2[0]["wins"] + responseJSON_2[0]["losses"])
         winrate = str(round(winrate_dec * 100, 2))
 
         champID = [responseJSON_3[0]["championId"], responseJSON_3[1]["championId"], responseJSON_3[2]["championId"], responseJSON_3[3]["championId"], responseJSON_3[4]["championId"]]
